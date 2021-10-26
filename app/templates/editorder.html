@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Edit Order</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.csrf_token }}
+        <p>{{ form.orderID.label }} {{ form.orderID(size=16, readonly=true) }}</p>
+        <p>{{ form.driver.label }} {{ form.driver }}</p>
+        <h3>Customer Details:</h3>
+        <p>{{ form.name.label }} {{ form.name(size=32) }}</p>
+        <p>{{ form.phone.label }} {{ form.phone(size=32) }}</p>
+        <p>{{ form.address.label }} {{ form.address(size=50) }}</p>
+        <p>{{ form.suburb.label }} {{ form.suburb(size=32) }}</p>
+        <h3>Items:</h3>
+        <br>
+        <br>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

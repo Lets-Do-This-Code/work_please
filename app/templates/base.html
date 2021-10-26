@@ -1,0 +1,100 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Porkies Dial-A-Rib</title>
+        {% else %}
+        <title>Welcome to Porkies Dial-A-Rib</title>
+        {% endif %}
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+            body{
+                font-family: Helvetica
+            }
+            h1{
+                font-size: 40px;
+                font-family: 'Pacifico', cursive;
+                color: #B61E1E;
+                text-shadow: 2px 2px 4px #000000;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+            th{
+                background-color: #333;
+                color: white;
+            }
+            #ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+                }
+
+            #li {
+                float: left;
+                }
+
+            #lia {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            /* Change the link color to #111 (black) on hover */
+            #li a:hover {
+                background-color: #111;
+            }
+            button {
+                font-size: 20px;
+                position: absolute; left: 800px; top: 150px;
+            }
+            .footer {
+                height: 55px;
+                font-size: 15px;
+                position: fixed;
+                bottom: 5px;
+                width: 98.5%;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                }
+            .footer p{
+                font-size: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul id="ul">
+                <li id="li"><a id="lia" href="/index">Home</a></li>
+                <li id="li"><a id="lia" href="/orders">Orders</a></li>
+                <li id="li"><a id="lia" href="/owner">Owner</a></li>
+                <li id="li"><a id="lia" href="/register">Register</a></li>
+            </ul>
+        </div>
+        {% block content %}{% endblock %}
+        
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <hr>
+        <ul>
+            {% for message in messages %}
+            <li>ALERT: {{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <div class="footer">
+            <p>Designed and Developed for Marymount College.</p>
+            <p>Copyright © 2019 Daniel Cousins. All Rights Reserved.</p>
+        </div>
+    </body>
+</html>
+
